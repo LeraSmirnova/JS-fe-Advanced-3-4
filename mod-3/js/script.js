@@ -12,7 +12,7 @@ function checkLoginValidity(login){
         return false;
        }
 }
-let checkLoginValidity = checkLoginValidity(login);
+ checkLoginValidity = checkLoginValidity(login);
 
 function checkIfLoginExists(logins, login){
    if(logins.includes(login)){
@@ -31,6 +31,7 @@ function addLogin(logins, login) {
         }else{
             logins = logins.push(login);
             console.log('Логин успешно добавлен!');
+            alert('Логин успешно добавлен!');
         }
     }else{
         console.log('Ошибка! Логин должен быть от 4 до 16 символов');
