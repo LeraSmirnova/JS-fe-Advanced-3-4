@@ -1,71 +1,44 @@
-//--------------- TASK #2 ---------------------
-/*  
-  Создайте фукнцию findLongestWord(str),
-  которая получает аргументом произвольную строку и
-  возвращает самое длинное слово в этой строке.   
-  Важное условие - в строке могут быть только пробелы
-  и символы букв и цифр!
-*/
 
-// function findLongestWord(string) {
-//     var str = string.split(" ");
-//     var longest = 0;
-//     var word = null;
-//     str.forEach(function(str) {
-//         if (longest < str.length) {
-//             longest = str.length;
-//             word = str;
-//         }
-//     });
-//     return word;
-// }
-
-// console.log(findLongestWord("The quick brown fox jumped over the lazy dog")); // вернет 'jumped'
-  
-// console.log(findLongestWord("Google do a roll")); // вернет 'Google'
-  
-// console.log(findLongestWord("May the force be with you")); // вернет 'force'
-
-
-//---------------- TASK #4----------------------
-
-/*  
-  Создайте функцию findLargestNumber(numbers), 
-  которая получает массив чисел numbers, и возвращает 
-  самое большое число в массиве.
-*/
-// const findLargestNumber = function(numbers){
-//     let largestNum = numbers[0];
-    
-//     for(i=1, max=numbers.length; i<max; i+=1){
-//         const elem = numbers[i];
-//         if(largestNum<elem){
-//             largestNum=elem;
-//         }
-//     }
-//     return largestNum;
-// }
-// console.log(
-//     findLargestNumber([1, 2, 3])
-//   ); // вернет 3
-  
-//   console.log(
-//     findLargestNumber([27, 12, 18, 5])
-//   ); // вернет 27
-  
-//   console.log(
-//     findLargestNumber([31, 128, 14, 74])
-//   );
+let login = prompt('Введите логин');  
+const logins = ["Mango", "robotGoogles", "Poly", "Aj4x1sBozz", "qwerty123"];
 
 
 
-//---------------- TASK #5----------------------
+function checkLoginValidity(login){
+    if (login.length > 4 && login.length < 16) {
+        return true;
+        
+    }else{
+        return false;
+       }
+}
+let checkLoginValidity = checkLoginValidity(login);
 
-/*  
-  Есть массив уникальных чисел uniqNumbers.
-  
-  Написать функцию, addUniqNumbers(...), 
-  которая получает произвольное кол-во чисел как аргументы, 
-  и добавляет в массив uniqNumbers только уникальные,
-  а повторяющиеся игнорирует.
-*/
+function checkIfLoginExists(logins, login){
+   if(logins.includes(login)){
+        return true;
+
+   }else{
+       return false;
+   }  
+}
+var checkIfLoginExists = checkIfLoginExists(logins, login);
+function addLogin(logins, login) {  
+    if(checkLoginValidity == true){
+        if(checkIfLoginExists == true){
+            console.log('Такой логин уже используется!');
+            alert('такой пароль уже существует!');
+        }else{
+            logins = logins.push(login);
+            console.log('Логин успешно добавлен!');
+        }
+    }else{
+        console.log('Ошибка! Логин должен быть от 4 до 16 символов');
+        alert('В логине должен быть от 4 до 16 символов');
+    }
+    return logins;
+}
+
+addLogin(logins, login);
+console.log(logins)
+console.log(logins[logins.length-1])
